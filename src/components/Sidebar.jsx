@@ -4,6 +4,7 @@ import { RiCloseLine } from 'react-icons/ri';
 
 import { logo } from '../assets';
 import { links } from '../assets/constants.js';
+import { HiOutlineMenu } from 'react-icons/hi';
 
 const NavLinks = ({ handleClick }) => (
   <div className='mt-10'>
@@ -24,10 +25,16 @@ const Sidebar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className='md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#191624]'>
-      <img src={logo} alt='logo' className='w-full h-14 object-contain' />
-      <NavLinks />
-    </div>
+    <>
+      <div className='md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#191624]'>
+        <img src={logo} alt='logo' className='w-full h-14 object-contain' />
+        <NavLinks />
+      </div>
+
+      <div className='absolute md:hidden text-white block top-6 right-3'>
+        {mobileMenuOpen ? <RiCloseLine /> : <HiOutlineMenu />}
+      </div>
+    </>
   );
 };
 
